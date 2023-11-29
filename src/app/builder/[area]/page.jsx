@@ -6,7 +6,7 @@ import {
     CardContent,
     CardHeader,
   } from "@/components/ui/card"
-import { TypographyH1, TypographyMuted, TypographyP, TypographyH3 } from '@/components/typography/Typography'
+import { TypographyLarge, TypographyH1, TypographyMuted, TypographyP, TypographyH3 } from '@/components/typography/Typography'
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons"
 import {
   Table,
@@ -33,28 +33,86 @@ import {
 } from "@/components/ui/popover"
 import { useSearchParams } from 'next/navigation'
 import TableRowComponent from '@/components/helpers/TableRowComponent'
+import exercisesData from '@/data/GYM-GUARDIAN.Exercises'
+
+// import { getExercises } from '@/api-requests/exercises-requests'
 
 export default function AreaOfFocus() {
-
-  const searchParams = useSearchParams()
-  const exercises = searchParams.getAll("exercises")
   const {area} = useParams()
 
+
+  const [exercisesState, setExerciseState] = React.useState({
+    exercises: [],
+
+  })
   const [open, setOpen] = React.useState(false)
   const [state, setState] = React.useState([]);
+  const [isLoading, setLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    return () => {
+      
+      let activeGroup = exercisesData.filter((item) => item.muscle_group === area)
+      console.log(activeGroup[0])
+      
+      setExerciseState({
+        ...exercisesState,
+        exercises:activeGroup[0].exercises,
+      })
+    };
+  }, [])
+
+
+  // React.useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(`http://localhost:3000/api/exercises?muscle_group=${area}`, {
+  //         method: "GET",
+  //       });
+  
+  //       if (!response.ok) {
+  //         throw new Error(`Request failed with status: ${response.status}`);
+  //       }
+  
+  //       const res = await response.json();
+  //       // console.log(res.data[0].exercises);
+  //       setExercises(res.data[0].exercises); // Assuming the response structure contains the exercises directly
+  
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //       // Handle the error, e.g., display an error message to the user
+  //     }
+  //   };
+  
+  //    fetchData(); 
+    
+
+  // }, []);
+  // console.log(exercises)
+
 
 
   const handleValue = (selectedValue) => {
     console.log(selectedValue);
-    setState([
-      ...state,
-      {
-        name: selectedValue,
-        reps: 0,
-        weight: 0,
-        notes: "",
-      }
-    ]);
+
+    
+    setState((prevState) => {
+      console.log(prevState)
+      return [
+        ...prevState,
+        {
+          name: selectedValue.name,
+          data: [
+            {
+              profile: selectedValue.profile,
+              reps: 0,
+              weight: 0,
+              notes: "",
+            },
+          ],
+        },
+      ];
+    });
   };
   
 
@@ -65,32 +123,38 @@ export default function AreaOfFocus() {
   
 
   const handleChange = (rowIndex, key, value) => {
+    console.log(state)
+    setState((prevState) => {
+      // Create a copy of the state
+      const updatedState = [...prevState];
 
-    console.log(value)
-    const newValue = [...state];
-    console.log(newValue[rowIndex][key])
-    newValue[rowIndex][key] = value;
-    setState(newValue);
+      updatedState[rowIndex].data[0][key] = value;
+  
+      return updatedState;
+    });
   };
+
+  console.log(state)
   
 
   
   return (
-    <Card className={`m-5 bg-violet-700 shadow-xl shadow-white/50`}>
-        <CardHeader className="items-center bg">
+    <div className="flex justify-center w-full h-full">
+      <Card className={`m-4 bg-primary text-primary shadow-slate-100 shadow-2xl`}>
+        <CardHeader className="items-center text-slate-800">
             
             <TypographyH1 text={area}/>
-            <TypographyMuted text={"Use this page to start building your own workout!"}/>
+            <TypographyP text={"Use this page to start building your own workout! If the exercise is not weighted, just put your body weight."}/>
         </CardHeader>
         <CardContent>
 
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <Button
-              variant="outline"
+              variant="secondary"
               role="combobox"
               aria-expanded={open}
-              className="w-[200px] justify-between mx-2 bg-neutral-700"
+              className="w-[200px] justify-between mx-2 text-slate-200"
             >
              
                 Select framework...
@@ -102,15 +166,15 @@ export default function AreaOfFocus() {
               <CommandInput placeholder="Search framework..." className="h-9" />
               <CommandEmpty>No framework found.</CommandEmpty>
               <CommandGroup>
-                {exercises ? exercises.map((exercise) => (
+                {exercisesState.exercises ? exercisesState.exercises.map((exercise) => (
                   <CommandItem
                     key={Math.random()}
                     onSelect={() => {
-                      handleValue(exercise)
+                      handleValue({name: exercise.name, profile:exercise.muscle_profile})
                       setOpen(false)
                     }}
                   >
-                    {exercise}
+                    {exercise.name}
                     <CheckIcon
                       className={cn(
                         "ml-auto h-4 w-4",
@@ -125,30 +189,35 @@ export default function AreaOfFocus() {
         </Popover>
       { state ? 
         <Table>
-          <TableCaption>Fill in your set details.  Set the reps, add more sets and write down any additional notes.</TableCaption>
+          <TableCaption  className="text-secondary">Fill in your set details.  Set the reps, add more sets and write down any additional notes.</TableCaption>
           <TableHeader>
-            <TableRow>
-              <TableHead className="w-[150px]">Exercise</TableHead>
-              <TableHead className="w-[150px]">Reps</TableHead>
-              <TableHead className="w-[150px]">Weight</TableHead>
-              <TableHead >Notes</TableHead>
-              <TableHead >Delete</TableHead>
+            <TableRow >
+              <TableHead className="w-[150px] text-slate-500">Exercise</TableHead>
+              <TableHead className="w-[150px] text-slate-500">Muscle Profile</TableHead>
+              <TableHead className="w-[150px] text-slate-500">Reps</TableHead>
+              <TableHead className="w-[150px] text-slate-500">Weight</TableHead>
+              <TableHead className="w-[150px] text-slate-500">Notes</TableHead>
+              <TableHead className="w-[150px] text-slate-500">Delete</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
           {
-            state.map((item, i) => (
+            state.map((item, i) => {
+              console.log(item.data)
+
+              return(
               <TableRowComponent
                 key={i}
+                profile={item.data.profile}
                 name={item.name}
-                reps={item.reps}
-                weight={item.weight}
-                notes={item.notes}
-                index={i}
+                reps={item.data.reps}
+                weight={item.data.weight}
+                notes={item.data.notes}
+                i={i}
                 handleChange={handleChange}
                 handleDelete={handleDelete}
-              />
-            ))
+              />)
+            })
           }
            
           </TableBody>
@@ -166,5 +235,6 @@ export default function AreaOfFocus() {
         Submit Set Data
       </Button> */}
     </Card>
+    </div>
   )
 }

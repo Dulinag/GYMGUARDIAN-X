@@ -1,0 +1,186 @@
+[{
+  "id": 4,
+  "muscle_group": "Core",
+  "exercises": [
+    {
+      "id": 16,
+      "muscle_profile": "Stabilizers",
+      "name": "Plank"
+    },
+    {
+      "id": 17,
+      "muscle_profile": "Obliques",
+      "name": "Russian Twists"
+    },
+    {
+      "id": 18,
+      "muscle_profile": "Upper Abs",
+      "name": "Crunches"
+    },
+    {
+      "id": 19,
+      "muscle_profile": "Lower Abs, Hip-Flexors",
+      "name": "Leg Raises"
+    },
+    {
+      "id": 20,
+      "muscle_profile": "Obliques, Upper Abs, Lower Abs",
+      "name": "Bicycle Crunches"
+    }
+  ]
+},
+{
+  "id": 1,
+  "muscle_group": "Back",
+  "exercises": [
+    {
+      "id": 1,
+      "muscle_profile": "Mid Back, Upper Back",
+      "name": "Barbell Row"
+    },
+    {
+      "id": 2,
+      "muscle_profile": "Lower Back, Hamstrings",
+      "name": "Deadlift"
+    },
+    {
+      "id": 3,
+      "muscle_profile": "Upper Back, Mid Back",
+      "name": "Pull-up"
+    },
+    {
+      "id": 4,
+      "muscle_profile": "Upper Back, Biceps",
+      "name": "Chin-ups"
+    },
+    {
+      "id": 5,
+      "muscle_profile": "Upper Back, Mid Back",
+      "name": "Lat Pulldown"
+    }
+  ]
+},
+{
+  "id": 3,
+  "muscle_group": "Legs",
+  "exercises": [
+    {
+      "id": 11,
+      "muscle_profile": "Glutes, Hamstrings, Quadriceps",
+      "name": "Squats"
+    },
+    {
+      "id": 12,
+      "muscle_profile": "Quadriceps",
+      "name": "Leg Press"
+    },
+    {
+      "id": 13,
+      "muscle_profile": "Quadriceps, Glutes, Hamstrings",
+      "name": "Lunges"
+    },
+    {
+      "id": 14,
+      "muscle_profile": "Hamstrings",
+      "name": "Leg Curls"
+    },
+    {
+      "id": 15,
+      "muscle_profile": "Hip-Flexor",
+      "name": "Step-ups"
+    }
+  ]
+},
+{
+  "id": 5,
+  "muscle_group": "Arms",
+  "exercises": [
+    {
+      "id": 21,
+      "muscle_profile": "Biceps",
+      "name": "Dumbbell Curl"
+    },
+    {
+      "id": 22,
+      "muscle_profile": "Triceps",
+      "name": "Tricep Dips"
+    },
+    {
+      "id": 23,
+      "muscle_profile": "Biceps",
+      "name": "Hammer Curl"
+    },
+    {
+      "id": 24,
+      "muscle_profile": "Triceps",
+      "name": "Skull Crushers"
+    },
+    {
+      "id": 25,
+      "muscle_profile": "Biceps",
+      "name": "Preacher Curl"
+    }
+  ]
+},
+{
+  "id": 2,
+  "muscle_group": "Chest",
+  "exercises": [
+    {
+      "id": 6,
+      "muscle_profile": "Upper Chest, Anterior Shoulder",
+      "name": "Bench Press"
+    },
+    {
+      "id": 7,
+      "muscle_profile": "Upper Chest, Triceps",
+      "name": "Push-up"
+    },
+    {
+      "id": 8,
+      "muscle_profile": "Upper Chest",
+      "name": "Incline Bench Press"
+    },
+    {
+      "id": 9,
+      "muscle_profile": "Upper Chest, Lower Chest",
+      "name": "Chest Fly"
+    },
+    {
+      "id": 10,
+      "muscle_profile": "Upper Chest",
+      "name": "Dumbbell Press"
+    }
+  ]
+},
+{
+  "id": 6,
+  "muscle_group": "Shoulders",
+  "exercises": [
+    {
+      "id": 26,
+      "muscle_profile": "Anterior Shoulder",
+      "name": "Push Press"
+    },
+    {
+      "id": 27,
+      "muscle_profile": "Side Shoudler",
+      "name": "Lateral Raises"
+    },
+    {
+      "id": 28,
+      "muscle_profile": "Anterior Shoulder",
+      "name": "Front Raises"
+    },
+    {
+      "id": 29,
+      "muscle_profile": "Rear Shoulder",
+      "name": "Rear Delt Raises"
+    },
+    {
+      "id": 30,
+      "muscle_profile": "Traps, Upper Back",
+      "name": "Shrugs"
+    }
+  ]
+}]

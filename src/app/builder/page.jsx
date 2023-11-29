@@ -1,4 +1,3 @@
-
 import {
     Card,
     CardContent,
@@ -8,23 +7,34 @@ import {
 import { workouts } from '@/data/WorkoutData'
 import Link from 'next/link'
 import { buttonVariants } from "@/components/ui/button"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
 
-export default function Builder() {
-
-
+export default async function Builder() {
+    const session = await getServerSession()
+    
+    if(!session || !session.user){
+        redirect("/api/auth/signin")
+    }
+    console.log(session)
+    
   return (
-    <Card className={`flex m-to items-center justify-center h-screen mb-12 bg-fixed bg-center custom-img`}>
+    <>
+     <Card className={`flex m-to items-center justify-center h-screen mb-12 bg-fixed bg-center bg-img bg-no-repeat bg-cover`}>
         <Card className="items-center bg-primary">
             <CardHeader>
-                  <TypographyH1 text={'Builder'}/>
-            <TypographyP text={"Use this page to start building your own workout!"}/>
+                <TypographyH1 text={'Builder'}/>
+                <TypographyP text={"Use this page to start building your own workout!"}/>
             </CardHeader>
           
         </Card>
      
         <CardContent className="">
-            <div className="p-4 space-x-4 border rounded-md bg-violet-600">
-                <TypographyH3 text={"Select an area of focus..."} />
+            <div className="p-4 space-x-4 ">
+                <Card className="p-4 bg-primary">
+                    <TypographyH3 text={"Select an area of focus..."} />
+                </Card>
+                
                 {
                 workouts.map((item) => {
                     return(
@@ -37,7 +47,7 @@ export default function Builder() {
                                 }
                             } }
                       
-                            className={buttonVariants({ variant: "outline" })}
+                            className={buttonVariants({ variant: "secondary" }) + "text-secondary"}
                             >{item.muscle_group}
                         </Link>
                         </div>
@@ -47,10 +57,17 @@ export default function Builder() {
             }
             </div>
         </CardContent>
-
- 
-
-      
     </Card>
+    {/* <Card className="bg-slate-600">
+    
+            <CardHeader>
+                <TypographyH1 text={'Current Workout in Progress...'}/>
+                <TypographyP text={"Use this page to start building your own workout!"}/>
+            </CardHeader>
+          
+     
+    </Card>  */}
+    </>
+   
   )
 }

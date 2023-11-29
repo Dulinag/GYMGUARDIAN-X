@@ -13,15 +13,13 @@ function RHeader() {
   return (
     <> 
     
-    <section className="py-10 bg-black"> {/* Increased padding for better spacing */}
+    <div className="my-8 bg-black"> {/* Increased padding for better spacing */}
       <div className="max-w-screen-xl px-4 mx-auto"> {/* Center content with max-width */}
         <div className="flex items-center justify-between">
           <div className="flex items-center"> {/* Center the logo and text */}
 
           <Link href="/">
             
-     
-  
             <img
               className="rounded-full"
               src="https://ih1.redbubble.net/image.3440946030.3036/raf,750x1000,075,t,101010:01c5ca27c6.jpg"
@@ -30,9 +28,7 @@ function RHeader() {
               height="40"
             />
 
-            {/* <ModeToggle /> */}
-
-              </Link>
+          </Link>
             <h1 className="ml-2 text-2xl font-bold text-white">Welcome to Gym Guardian</h1>
           </div>
           <p className="text-sm text-gray-400">
@@ -41,7 +37,8 @@ function RHeader() {
           <DropDown display={"≡≡≡"} label={"Select a page"} items={"Home"}/>
         </div>
       </div>
-    </section></>
+    </div>
+    </>
 
   );
 }

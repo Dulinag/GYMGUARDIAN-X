@@ -1,83 +1,29 @@
-// export async function getServerSideProps(context) {
-//     let res = await fetch("http://localhost:3000/api/posts", {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-//     let users = await res.json();
-  
-//     return {
-//       props: { users },
-//     };
-//   }
 "use client"
-  import React from 'react'
-  import axios from 'axios';
 
-  export default function Test() {
+import { DotPattern } from "@/components/page-layouts/DotPattern"
 
-    const [exercises, setExercises] = React.useState(null)
-    React.useEffect(() => {
-       console.log(exercises)
-      }, [exercises]);
+export default function Page() {
+  return (
+    <div className="flex items-center w-screen h-screen max-w-xl mx-auto">
+      <div className="relative flex items-center justify-center w-full overflow-hidden border h-80 rounded-2xl border-white/10 bg-white/5">
+        <DotPattern
+          size={32}
+          radius={1.5}
+          offset-x={0}
+          offset-y={0}
+          className="absolute inset-0 h-full w-full fill-white/10 [mask-image:radial-gradient(white,transparent_85%)]"
+        />
 
-    const getExercises = async (e) => {
-        e.preventDefault();
-        
-        try {
-          const response = await fetch("http://localhost:3000/api/exercises", {
-            method: "GET",
-          });
-    
-          if (!response.ok) {
-            throw new Error(`Request failed with status: ${response.status}`);
-          }
-    
-          const res = await response.json();
-          setExercises(res.data)
-         
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          // Handle the error, e.g., display an error message to the user
-        }
-      }
+        {/* <div className="relative text-4xl font-bold font-display">
+          <div className="absolute inset-0 rounded-full bg-white/25 blur-2xl"></div>
 
-      const postUser = async () => {
-        let user = "BennettKautz"
-        let password = "Passworddd"
-        let body  = {
-          username: user,
-          password: password
-        }
-        
-        // const api = axios.create({baseURL:"http://localhost:3000"})
-        // await api.post('/users', body).then(res => res).catch(err => err)
+          <span className="relative text-transparent bg-gradient-to-b from-white/50 to-white bg-clip-text">
+            Dot Pattern
+          </span>
+        </div> */}
+      </div>
+    </div>
+  )
+}
 
-
-        try {
-          const response = await axios.post('http://localhost:3000/api/users', body);
-            
-          if (response.status !== 200) {
-            throw new Error(`Request failed with status: ${response.status}`);
-          }
-            
-          const data = response.data;
-          console.log(data);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          // Handle the error, e.g., display an error message to the user
-        }
-      }
-
-      
-    return (
-        <div>
-            Test
-            <button onClick={getExercises}>CLick</button>
-            <br/>
-            <button onClick={postUser}>CLick to add user</button>
-        </div>
-    )
-  }
   

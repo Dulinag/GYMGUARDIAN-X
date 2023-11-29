@@ -1,8 +1,3 @@
-import { MongoClient } from "mongodb";
-
-// const URI = process.env.MONGODB_URI
-
-// if(!URI) throw new Error('Please add your Mongo DB URI to .nv.local')
 
 // let client = new MongoClient(URI, options)
 // let clientPromise
@@ -16,6 +11,10 @@ import { MongoClient } from "mongodb";
 // }else {
 //     clientPromise = client.connect()
 // }
+import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
+// import User from './models/User';
+// import { WorkoutSchema } from './models/Workout';
 
 const uri = process.env.MONGODB_URI
 if(!uri) throw new Error('Please add your Mongo DB URI to .nv.local')
@@ -43,4 +42,24 @@ if(!uri) throw new Error('Please add your Mongo DB URI to .nv.local')
     clientPromise = client.connect()
   }
 
-export default clientPromise
+  // Define and initialize the User model\
+
+  // let UserModel;
+  // if (mongoose.models.User) {
+  //   UserModel = mongoose.models.User;
+  // } else {
+  //   UserModel = mongoose.model('User', User);
+  // }
+  
+  // console.log(mongoose.models.User);
+  
+  // // Define and initialize the Workout model
+  // let WorkoutModel;
+  // if (mongoose.models.Workout) {
+  //   WorkoutModel = mongoose.models.Workout;
+  // } else {
+  //   WorkoutModel = mongoose.model('Workout', WorkoutSchema);
+  // }
+  // console.log(mongoose.models.Workout);
+
+export { clientPromise };
