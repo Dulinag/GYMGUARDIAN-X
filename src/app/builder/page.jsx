@@ -1,14 +1,16 @@
+
 import {
     Card,
     CardContent,
     CardHeader,
   } from "@/components/ui/card"
-  import { TypographyH1, TypographyMuted, TypographyP, TypographyH3 } from '@/components/typography/Typography'
+import { TypographyH1, TypographyMuted, TypographyP, TypographyH3 } from '@/components/typography/Typography'
 import { workouts } from '@/data/WorkoutData'
 import Link from 'next/link'
 import { buttonVariants } from "@/components/ui/button"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
+import UserWorkout from "@/components/helpers/UserWorkout"
 
 export default async function Builder() {
     const session = await getServerSession()
@@ -16,7 +18,7 @@ export default async function Builder() {
     if(!session || !session.user){
         redirect("/api/auth/signin")
     }
-    console.log(session)
+
     
   return (
     <>
@@ -58,15 +60,7 @@ export default async function Builder() {
             </div>
         </CardContent>
     </Card>
-    {/* <Card className="bg-slate-600">
-    
-            <CardHeader>
-                <TypographyH1 text={'Current Workout in Progress...'}/>
-                <TypographyP text={"Use this page to start building your own workout!"}/>
-            </CardHeader>
-          
-     
-    </Card>  */}
+    <UserWorkout sessionData={session.user} />
     </>
    
   )

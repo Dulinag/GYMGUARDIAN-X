@@ -1,0 +1,149 @@
+[{
+  "_id": {
+    "$oid": "655d4d6ce55da6c45ac402bd"
+  },
+  "status": "Final",
+  "date": "2023-11-21",
+  "length": 30,
+  "cals_burned": 300,
+  "mood": "Good",
+  "intensity": "Moderate",
+  "exhaustion": "Low",
+  "sleep": "7 hours",
+  "exercise_data": []
+},
+{
+  "_id": {
+    "$oid": "656cda94dfd162679cc50135"
+  },
+  "status": "Final",
+  "date": {
+    "$date": "2023-12-03T19:44:20.752Z"
+  },
+  "length": "",
+  "cals_burned": "",
+  "mood": "",
+  "intensity": "",
+  "exhaustion": "",
+  "sleep": "7 ",
+  "user": "",
+  "exercise_data": [],
+  "name": "Bennett Kautz"
+},
+{
+  "_id": {
+    "$oid": "656cda95dfd162679cc50136"
+  },
+  "status": "Final",
+  "date": {
+    "$date": "2023-12-03T19:44:21.566Z"
+  },
+  "length": "",
+  "cals_burned": "",
+  "mood": "",
+  "intensity": "",
+  "exhaustion": "",
+  "sleep": "7 ",
+  "user": "",
+  "exercise_data": [],
+  "name": "Bennett Kautz"
+},
+{
+  "_id": {
+    "$oid": "656cda96dfd162679cc50137"
+  },
+  "status": "Final",
+  "date": {
+    "$date": "2023-12-03T19:44:22.838Z"
+  },
+  "length": "",
+  "cals_burned": "",
+  "mood": "",
+  "intensity": "",
+  "exhaustion": "",
+  "sleep": "7 ",
+  "user": "",
+  "exercise_data": [],
+  "name": "Bennett Kautz"
+},
+{
+  "_id": {
+    "$oid": "656cda96dfd162679cc50138"
+  },
+  "status": "Final",
+  "date": {
+    "$date": "2023-12-03T19:44:22.934Z"
+  },
+  "length": "",
+  "cals_burned": "",
+  "mood": "",
+  "intensity": "",
+  "exhaustion": "",
+  "sleep": "7 ",
+  "user": "",
+  "exercise_data": [],
+  "name": "Bennett Kautz"
+},
+{
+  "_id": {
+    "$oid": "656cdb24dfd162679cc5013b"
+  },
+  "status": "Edit",
+  "date": {
+    "$date": "2023-12-03T19:46:44.079Z"
+  },
+  "length": "",
+  "cals_burned": "",
+  "mood": "",
+  "intensity": "",
+  "exhaustion": "",
+  "sleep": "7 ",
+  "user": "",
+  "exercise_data": [],
+  "name": "Bennett Kautz"
+},
+{
+  "_id": "656fb21e183fabd6311d006b",
+  "status": "Edit",
+  "date": {
+    "$date": "2023-12-05T23:28:30.933Z"
+  },
+  "length": "",
+  "cals_burned": "",
+  "mood": "",
+  "intensity": "",
+  "exhaustion": "",
+  "sleep": "",
+  "user": "",
+  "exercise_data": []
+},
+{
+  "_id": "656fb68d183fabd6311d006c",
+  "status": "Edit",
+  "date": {
+    "$date": "2023-12-05T23:47:25.211Z"
+  },
+  "length": "",
+  "cals_burned": "",
+  "mood": "",
+  "intensity": "",
+  "exhaustion": "",
+  "sleep": "",
+  "user": "",
+  "exercise_data": []
+},
+{
+  "_id": "656fb68d183fabd6311d006d",
+  "status": "Edit",
+  "date": {
+    "$date": "2023-12-05T23:47:25.213Z"
+  },
+  "length": "",
+  "cals_burned": "",
+  "mood": "",
+  "intensity": "",
+  "exhaustion": "",
+  "sleep": "",
+  "user": "",
+  "exercise_data": []
+}]

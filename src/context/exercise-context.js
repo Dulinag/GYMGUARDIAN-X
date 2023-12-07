@@ -3,22 +3,18 @@ import { createContext, useState, useContext, useMemo } from "react";
 
 export const StateContext = createContext(null)
 
-const initialState = {
-    exercises: [],
-    bodyPart: null
-}
+const initialState = ""
 
 export default function StateContextProvider({
     children
 }) {
 
-    const [state, setState] = useState(initialState)
+    const [workoutId, setWorkoutId] = useState(initialState)
 
-    console.log(state)
 
 
     return(
-        <StateContext.Provider value={{state, setState}}>
+        <StateContext.Provider value={{workoutId, setWorkoutId}}>
             {children}
         </StateContext.Provider>
     )

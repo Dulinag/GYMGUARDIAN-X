@@ -22,6 +22,16 @@ export default async function handler(req, res) {
       }
       break;
 
+      // case "POST":
+      //   const data = req.body
+      //   const id = req.body._id
+      //   if(data){
+      //     const existingWorkout = await db.collection('Workouts').findOne({ _id: req.body._id });
+      //     if(existingWorkout){
+
+      //     }
+      //   }
+
      
   }
 }

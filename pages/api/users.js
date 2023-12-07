@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       // Create a new user
       const userFields = {
         username: req.body.username,
-        password: req.body.password,
+        email: req.body.email,
         _id: new mongoose.Types.ObjectId(),
       };
 
